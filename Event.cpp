@@ -40,10 +40,11 @@ void Event::update(void) {
 
 void Event::update(unsigned long now) {
 	if (now - lastEventTime >= period) {
+	    if(callback)
 		(*callback)(id);
-		lastEventTime = now;
+	    lastEventTime = now;
 
-		if (eventType < 0) // means timer was once only
-			eventType = EVENT_NONE;  // means timer not used
+	    if (eventType < 0) // means timer was once only
+		eventType = EVENT_NONE;  // means timer not used
 	}
 }

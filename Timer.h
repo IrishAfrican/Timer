@@ -92,7 +92,7 @@ template<int numberOfEvents_> int8_t Timer<numberOfEvents_>::after(int32_t perio
 
 template<int numberOfEvents_> void Timer<numberOfEvents_>::stop(int8_t id) {
 	if (id >= 0 && id < numberOfEvents) {
-		_events[id].period = 0;
+		_events[id].eventType = EVENT_NONE;
 	}
 }
 
